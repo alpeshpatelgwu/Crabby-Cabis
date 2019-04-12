@@ -1,37 +1,15 @@
 
-
-//const API_KEY = "sk.eyJ1IjoicHJvZmVzc29yZGFydCIsImEiOiJjanU1eWp6cGswZ3ViNGRsbXFiem0wb2plIn0.EQfkhoPxPipXPYmCAO77vQ";
-// Create the tile layer that will be the background of our map
-// var lightmap = L.tileLayer("https://api.mapbox.com/styles/v1/mapbox/light-v9/tiles/256/{z}/{x}/{y}?access_token={accessToken}", {
-//     attribution: "Map data &copy; <a href=\"http://openstreetmap.org\">OpenStreetMap</a> contributors, <a href=\"http://creativecommons.org/licenses/by-sa/2.0/\">CC-BY-SA</a>, Imagery © <a href=\"http://mapbox.com\">Mapbox</a>",
-//     maxZoom: 18,
-//     id: "mapbox.light",
-//     accessToken: API_KEY
-// });
-
-// // Create a baseMaps object to hold the lightmap layer
-// var baseMaps = {
-//     "Light Map": lightmap
-// };
+var map = L.map('map', {
+    center: [38.907192, -77.036873],
+    zoom: 10,
+});
 
 
-// Create the map object with options
-// var map = L.map("map", {
-//     center: [38.9072, -77.0369],
-//     zoom: 12,
-//     //layers: [lightmap]
-// });
+L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+}).addTo(map);
 
 
-
-
-var center = [38.907192, -77.036873];
-
-var osmUrl = 'http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
-    osmAttrib = '&copy; <a href="http://openstreetmap.org/copyright">OpenStreetMap</a> contributors',
-    osm = L.tileLayer(osmUrl, {maxZoom: 18, attribution: osmAttrib});
-
-map = new L.Map('map', {layers: [osm], center: new L.LatLng(center[0], center[1]), zoom: 10});
 
 var options = {
 	duration: 1500, //Default: 800 - Sets the transition duration for the ping layer
