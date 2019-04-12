@@ -29,12 +29,17 @@
 </head>
 
 <body>
-    <div class="col-md-12">
+    <!-- <div class="col-md-12">
         <span class="glyphicon glyphicon-calendar" arai-hidden="true"></span> 
         <input type="text" name="datetimes" placeholder="insert date range" />
         <p><strong>Select A Date Range to See Station Status</strong></p>
-    </div>
-        <script>
+    </div> -->
+    <div id="daterange"></div>
+
+    
+<input type="text" name="daterange" value="04/06/2019 - 04/15/2018" /> 
+
+        <!-- <script>
         $(function() {
           $('input[name="datetimes"]').daterangepicker({
             timePicker: true,
@@ -45,8 +50,12 @@
             }
           });
         });
-       
-        </script>
+        $('#daterange').daterangepicker();
+          $('#daterange').on('apply.daterangepicker', function(ev, picker) {
+            console.log(picker.startDate.format('YYYY-MM-DD'));
+            console.log(picker.endDate.format('YYYY-MM-DD'));
+          });
+        </script> -->
 
 <!-- TEST TEST TTEST-->
 
