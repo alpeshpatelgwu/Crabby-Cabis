@@ -7,6 +7,10 @@ var bikeLayer;
 
 var map;
 var layer;
+var startDate = "2019-04-10";
+var endDate = "2019-04-11";
+var termID = 1;
+
 
 function buildPlot(url) {
   d3.json(url).then(function(response) {
@@ -29,9 +33,23 @@ function buildPlot(url) {
         // For each station, create a marker and bind a popup with the station's name
         var total_docks = station.num_bikes + station.num_empty_docks;
         //console.log(total_docks)
-        var bikeMarker = L.marker([station.lat, station.long]).bindPopup(
-          "<h3>" + station.address + "<h3><h3>Capacity: " + total_docks + "<h3>"
-        );
+        // var bikeMarker = L.marker([station.lat, station.long]).bindPopup(
+        //   "<h4>" + station.address + "<h3><h3>Capacity: " + total_docks + "<h3>" 
+        // );
+
+        var bikeMarker = L.marker([station.lat, station.long]).bindPopup('<div id="plot"></div>')
+        .on('popupopen', buildChart(startDate, endDate, termID), {
+                autosize: false,
+                width: 300,
+                height: 150,
+                margin: {
+                    l: 0,
+                    r: 0,
+                    b: 0,
+                    t: 0,
+                    pad: 0
+                }
+            });
 
         // Add the marker to the bikeMarkers array
         bikeMarkers.push(bikeMarker);
@@ -103,7 +121,15 @@ function buildPlot(url) {
   });
 }
 
-function buildChart() {
+function buildChart(startDate, endDate, termID) {
+
+  url = `/jisan?startDate=${startDate}?endDate=${endDate}?termID=${termID}`
+
+  console.log("LOOK HERE PLOT");
+  console.log(url);
+  console.log(termID);
+  console.log("LOOK HERE PLOT");
+
   d3.json(url).then(function(response) {
     var stations = response;
     // Initialize an array to hold bike markers
