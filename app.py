@@ -92,13 +92,19 @@ def jisan():
     #print("fuck this")
 
     start_date = request.args.get("startDate")
-    # end_date = request.args.get("endDate")
+    end_date = request.args.get("endDate")
+    #term_id = request.args.get("termID")
 
 
-    bike_df = pd.read_sql(f"SELECT * FROM bikeshare WHERE time LIKE '{start_date}%%' AND num_bikes = 0 GROUP BY term_id", conn, 
-                            params={"start_date":start_date})
+    #q = f"SELECT * FROM bikeshare WHERE time BETWEEN '{start_date}%%' AND '{end_date}%%' AND term_id = '{term_id}'"
+    
+    #print (q)
 
-    #bike_df = pd.read_sql("SELECT * FROM bikeshare WHERE time BETWEEN '2019-04-06 09:52:00' AND '2019-04-07 09:52:00'", conn)
+    bike_df = pd.read_sql(f"SELECT * FROM bikeshare WHERE time BETWEEN '{start_date}%%' AND '{end_date}%%' AND num_bikes = 0 GROUP BY term_id", conn)
+    #                        params={"start_date":start_date})
+
+    #bike_df = pd.read_sql(f"SELECT * FROM bikeshare WHERE time BETWEEN '{start_date}%%' AND '{end_date}%%' AND term_id = '{term_id}'", conn)
+    #, params={"start_date":start_date,"end_date":end_date,"term_id":term_id})
 
 #    bike_df = pd.read_sql("SELECT * FROM bikeshare WHERE time = '2019-04-06 09:52:00'", conn, 
 #                            params={"start_date":start_date}) 
@@ -117,6 +123,21 @@ def jisan():
     return jsonify(bike_df.to_dict(orient="records"))
 
     #return(start_date)
+
+@app.route("/chart")
+def chart():
+    
+    conn = engine.connect()
+
+    start_date = request.args.get("startDate")
+    end_date = request.args.get("endDate")
+    term_id = request.args.get("termID")
+
+    q = f"SELECT * FROM bikeshare WHERE time BETWEEN '{start_date}%%' AND '{end_date}%%' AND term_id = '{term_id}'"
+    print (q)
+
+    bike_df = pd.read_sql(f"SELECT * FROM bikeshare WHERE time BETWEEN '{start_date}%%' AND '{end_date}%%' AND term_id = '{term_id}'", conn)   
+    return jsonify(bike_df.to_dict(orient="records"))
 
 @app.route("/tom")
 def tom():
