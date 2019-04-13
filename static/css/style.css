@@ -68,3 +68,17 @@ body {
   margin: 0;
   font-size: 16px;
 }
+
+
+circle.ping {
+  stroke: #000;
+  stroke-width: 1px;
+}
+
+circle.red {
+ fill: red;
+}
+
+circle.green {
+ fill: green;
+}
