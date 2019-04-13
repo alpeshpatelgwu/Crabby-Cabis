@@ -1,16 +1,14 @@
 
-
-<div id="map" style="width: 600px; height: 400px; border: 1px solid #ccc"></div>
-<button onclick="togglePlay()">Pause</button>
-
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Citi Bike</title>
+  <title>Crabby Cabbis</title>
 
+  <!-- Adding the Crabby Cabbi's logo to render on title page-->
+
+  <link rel="icon" type="image/png" href="../static/img/crabby_cabbi_logo.png">
+  
   <!-- Leaflet CSS -->
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.0-rc.3/dist/leaflet.css">
 
@@ -20,13 +18,15 @@
 <body>
 
   <!-- The div that holds our map -->
-  <div id="map"></div>
+
+  <div id="map" style="width: 600px; height: 400px; border: 1px solid #ccc"></div>
+  <button onclick="togglePlay()">Pause</button>
 
   <!-- D3 -->
   <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/4.5.0/d3.min.js"></script> -->
 
   <!-- Leaflet JavaScript -->
-  <!-- <script src="https://unpkg.com/leaflet@1.0.0-rc.3/dist/leaflet.js"></script> -->
+  <script src="https://unpkg.com/leaflet@1.0.0-rc.3/dist/leaflet.js"></script> 
   <script src="https://d3js.org/d3.v5.min.js" charset="utf-8"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.4.0/leaflet.js"></script>
   <script src="https://unpkg.com/@asymmetrik/leaflet-d3@4/dist/leaflet-d3.js" charset="utf-8"></script> 
