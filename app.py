@@ -60,6 +60,14 @@ def station_status():
 @app.route("/ping")
 def ping():
     return render_template("ping.html")
+
+@app.route("/team")
+def team():
+    return render_template("team.html")
+
+@app.route("/current_cabi_status")
+def cabi_status():
+    return render_template("current_cabi_status.html")
    
 
 # Query the database and return the jsonified results

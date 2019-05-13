@@ -1,43 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Crabby Cabbis</title>
+{% extends "base.html" %}
 
-    <!-- Adding the Crabby Cabbi's logo to render on title page-->
-  
-    <link rel="icon" type="image/png" href="../static/img/crabby_cabbi_logo.png">
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.3/dist/leaflet.css" integrity="sha512-Rksm5RenBEKSKFjgI3a41vrjkw4EVPlJ3+OiI65vTjIdo9brlAacEuKOiQ5OFh7cOI1bkDwLqdLw3Zg0cRJAAQ==" crossorigin=""/>
-    <script src="https://unpkg.com/leaflet@1.3.3/dist/leaflet.js" integrity="sha512-tAGcCfR4Sc5ZP5ZoVz0quoZDYX5aCtEm/eu1KhSLj2c9eFrylXZknQYmxUssFaVJKvvc0dJQixhGjG2yXWiV9Q==" crossorigin=""></script>
 
-    <!-- DATE RANGE -->
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/jquery/latest/jquery.min.js"></script>
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
-    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
-    
-    
-    <!-- Latest compiled and minified CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+{% block content %}
+{% include "nav.html" %}
 
-    <!-- Optional theme -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
-
-    <!-- Latest compiled and minified JavaScript -->
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
-
-</head>
-
-<body>
-    <!-- <div class="col-md-12">
-        <span class="glyphicon glyphicon-calendar" arai-hidden="true"></span> 
-        <input type="text" name="datetimes" placeholder="insert date range" />
-        <p><strong>Select A Date Range to See Station Status</strong></p>
-    </div> -->
-    <div id="daterange"></div>
+<div id="daterange"></div>
 
     
 <input type="text" name="daterange" value="04/06/2019 - 04/15/2018" /> 
@@ -46,18 +13,9 @@
 <div id="plot" style="height:500px; width:900px;"></div>
 
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.5.0/d3.min.js"></script>
+<script type="text/javascript" src="../static/js/app.js"></script>
+<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>   
 
-    <!--<div id="map" style="height:500px; width:900px;"></div>--->
-    <br>
-    <br>
-    <br>
-    <!---<div id="map_ping" style="height:500px; width:900px;"></div>-->
-
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.5.0/d3.min.js"></script>
-    <script type="text/javascript" src="../static/js/app.js"></script>
-    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>   
-    <!--<script type="text/javascript" src="../static/js/app_stable.js"></script> --->
-    <!-- <script type="text/javascript" src="../static/js/ping.js"></script>  --->
-</body>
-</html>
+{% include "footer.html" %}
+{% endblock %}
