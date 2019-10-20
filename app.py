@@ -17,7 +17,7 @@ from flask_sqlalchemy import SQLAlchemy
 
 from flask.json import JSONEncoder
 
-remote_db_endpoint = 'gwcodingbootcamp.cr0gccbv4ylw.us-east-2.rds.amazonaws.com'
+remote_db_endpoint = 'crabby-cabis.ccidoelgevpg.us-east-2.rds.amazonaws.com'
 remote_db_port = '3306'
 remote_gwsis_dbname = 'bikeshare_db'
 remote_gwsis_dbuser = 'root'
